@@ -1,0 +1,14 @@
+{% extends 'menu.html' %}
+{% load static %}
+
+{% block header %}
+    {{ block.super }}
+        <h2>Welcome to the shopping cart</h2>
+{% endblock %}
+
+{% block content %}
+    <h2>{{ your_choice }}</h2>
+        <a href="http://127.0.0.1:8000">
+            <button>{{ text_back }}</button>
+        </a>
+{% endblock %}

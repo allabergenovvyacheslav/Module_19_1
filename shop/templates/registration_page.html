@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Registration page{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href='{% static "style.css" %}'>
+</head>
+<body>
+    <h2>User form</h2>
+    <form method="post">
+        {% csrf_token %}
+<!--        {{ form }}-->
+        <p><label for="username">Введите логин:</label><br>
+        <input type="text" id="username" name="username" maxlength="30" required></p>
+
+        <p><label for="password">Введите пароль:</label><br>
+        <input type="text" id="password" name="password" maxlength="8" required></p>
+
+        <p><label for="repeat_password">Повторите пароль:</label><br>
+        <input type="text" id="repeat_password" name="repeat_password" maxlength="8" required></p>
+
+        <p><label for="age">Введите свой возраст:</label><br>
+        <input type="number" id="age" name="age" maxlength="3" required></p>
+        <button type="submit">Отправить</button>
+        </form>
+    <h3>{{ info.error }}</h3>
+    <a href="/"><button>Вернуться на главную</button></a>
+</body>
+</html>

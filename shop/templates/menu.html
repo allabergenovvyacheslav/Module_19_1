@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}My site{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href='{% static "style.css" %}'>
+</head>
+<body>
+
+    <header>
+        {% block header %}
+        <h1>{{ title }}</h1>
+        {% endblock %}
+    </header>
+
+    <page>
+        <a href="http://127.0.0.1:8000/django_sign_up/"><button>Registration page</button></a>
+    </page>
+
+    <menu>
+        {% block menu %}
+        <h3>
+
+            <a href="http://127.0.0.1:8000">Home page</a><br>
+
+            <a href="http://127.0.0.1:8000/platform/products/">Company products</a><br>
+
+            <a href="http://127.0.0.1:8000/platform/cart/">Your choice of products</a><br>
+
+        </h3>
+        {% endblock %}
+    </menu>
+
+    <content>
+        {% block content %}
+        <ul>
+            {% for product in production %}
+            <li>
+                <p>
+                    {{ product.title }} | {{ product.descriptions }}. <br>Price: {{ product.cost }}
+                    <button>{{ text_buy }}</button>
+                </p>
+            </li>
+            {% endfor %}
+        </ul>
+        {% endblock %}
+    </content>
+
+    <footer>
+        {% block footer %}
+        <p>&copy;2024 My site</p>
+        {% endblock %}
+    </footer>
+</body>
+</html>
