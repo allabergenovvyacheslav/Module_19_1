@@ -1,0 +1,27 @@
+python manage.py shell
+
+from task1.models import Buyer
+Buyer.objects.all()
+<QuerySet []>
+Buyer.objects.create(name='Alex', balance=25000, age=35)
+<Buyer: Alex>
+Buyer.objects.create(name='Nikita', balance=15000, age=27) 
+<Buyer: Nikita>
+ Buyer.objects.create(name='Ekaterina', balance=7500, age=17)
+<Buyer: Ekaterina>
+
+from task1.models import Game
+>>> Game.objects.all()
+<QuerySet []>
+Game.objects.create(title='Cyberpunk 2077', cost=3100, size=46.2, descriptions='Game of the year', age_limited=1)
+<Game: Cyberpunk 2077>
+Game.objects.create(title='Mario', cost=1500, size=0.5, descriptions='Old game', age_limited=0)                    
+<Game: Mario>
+Game.objects.create(title='Hitman', cost=2800, size=36.6, descriptions='Who kills Mark?', age_limited=1)
+<Game: Hitman>
+
+from task1.models import *
+>>> Game.objects.get(id=1).buyer.set(('1', '2'))
+>>> Game.objects.get(id=2).buyer.set(('1', '2', '3'))
+>>> Game.objects.get(id=3).buyer.set(('1'))
+
