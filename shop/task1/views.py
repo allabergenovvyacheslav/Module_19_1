@@ -28,6 +28,8 @@ def sign_up_by_django(request):
                 info['error'] = 'Пользователь уже существует'
             elif password != repeat_password:
                 info['error'] = 'Пароли не совпадают'
+            elif not len(password) >= 8:
+                info['error'] = 'Менее 8 символов'
             elif int(age) < 18:
                 info['error'] = 'Вы должны быть старше 18'
             else:
